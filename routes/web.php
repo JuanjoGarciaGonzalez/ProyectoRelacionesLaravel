@@ -14,5 +14,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name("home"); //El name se le indica a la ruta no al return
+
+Route::get('/pasajeros/crear', function () {
+    return view('crearPasajero');
+})->name("crearPasajero");
+
+Route::get('/vuelos/crear', function () {
+    return view('crearVuelo');
+})->name("crearVuelo");
