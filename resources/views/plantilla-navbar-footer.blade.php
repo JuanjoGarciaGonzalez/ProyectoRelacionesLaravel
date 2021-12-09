@@ -8,6 +8,8 @@
     <title>@yield('titulo') - Proyecto 1 Laravel</title>
     <!-- CDN BOOTSTRAP -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    {{-- CDN de Font Awesome --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         html, body {
             height: 100vh;
@@ -39,7 +41,7 @@
                     <a class="nav-link" href="{{ route('crearPasajero') }}">Crear pasajero</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Crear vuelo</a>
+                    <a class="nav-link" href="{{ route('crearVuelo') }}">Crear vuelo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Asignar y listar</a>
