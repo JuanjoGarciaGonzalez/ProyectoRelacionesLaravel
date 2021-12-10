@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PasajeroController;
+use App\Http\Controllers\VueloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +26,6 @@ Route::get('/pasajeros/crear', function () {
 Route::get('/vuelos/crear', function () {
     return view('crearVuelo');
 })->name("crearVuelo");
+
+Route::get('/pasajeros/store', [PasajeroController::class, 'store'])->name('pasajero.store');
+Route::get('/vuelos/store', [VueloController::class, 'store'])->name('vuelo.store');

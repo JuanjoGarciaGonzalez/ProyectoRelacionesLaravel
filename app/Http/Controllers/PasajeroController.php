@@ -15,6 +15,6 @@ class PasajeroController extends Controller
     public function store(Request $request) {
         $pasajero = new Pasajero();
         $pasajero->create($request->all());
-        return redirect('');
+        return redirect()->route('home');
     }
 }

@@ -37,7 +37,7 @@
     <h1>Crear pasajero</h1>
     {{-- FORMULARIO CREAR PASAJERO --}}
     <div class="h-auto w-100 mt-5 d-flex align-items-center justify-content-center">
-        <form id="formulario-pasajero" method="POST" action="" class="w-25 p-3">
+        <form id="formulario-pasajero" method="get" action="{{route('pasajero.store')}}" class="w-25 p-3">
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre" name="nombre">
@@ -56,13 +56,13 @@
             <div class="form-group">
             <label for="">Sexo</label>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="sexo" id="hombre">
+                <input class="form-check-input" type="radio" name="sexo" id="hombre" value="hombre">
                 <label class="form-check-label" for="hombre">
                   Hombre
                 </label>
               </div>
               <div class="form-check">
-                <input class="form-check-input" type="radio" name="sexo" id="mujer" checked>
+                <input class="form-check-input" type="radio" name="sexo" id="mujer" value="mujer">
                 <label class="form-check-label" for="mujer">
                   Mujer
                 </label>

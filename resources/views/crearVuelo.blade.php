@@ -38,7 +38,7 @@
 
     {{-- FORMULARIO CREAR VUELO --}}
     <div class="h-auto w-100 mt-5 d-flex align-items-center justify-content-center">
-        <form id="formulario-pasajero" method="POST" action="" class="w-25 p-3">
+        <form id="formulario-pasajero" method="get" action="{{ route('vuelo.store') }}" class="w-25 p-3">
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" class="form-control" id="nombre" placeholder="Introduce el nombre" name="nombre">
