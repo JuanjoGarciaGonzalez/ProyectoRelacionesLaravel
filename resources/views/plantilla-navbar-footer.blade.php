@@ -44,7 +44,7 @@
                     <a class="nav-link" href="{{ route('crearVuelo') }}">Crear vuelo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Asignar y listar</a>
+                    <a class="nav-link" href="{{ route('asignarListar') }}">Asignar y listar</a>
                 </li>
             </ul>
         </div>
