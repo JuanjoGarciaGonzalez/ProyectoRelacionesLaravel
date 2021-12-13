@@ -26,6 +26,6 @@
     <div class="botones">
         <a href="{{ route("crearPasajero") }}" class="btn btn-success">Crear pasajero</a>
         <a href="{{ route("crearVuelo") }}" class="btn btn-success">Crear vuelo</a>
-        <a href="{{ route('asignarListar') }}" class="btn btn-info">Asignar y listar</a>
+        <a href="{{ route('PasajerosVuelos.listar') }}" class="btn btn-info">Asignar y listar</a>
     </div>
 @endsection

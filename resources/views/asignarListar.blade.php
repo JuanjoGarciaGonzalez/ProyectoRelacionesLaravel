@@ -49,19 +49,26 @@
     <h1>Asignar</h1>
 
     <div class="h-auto w-100 d-flex align-items-center justify-content-center">
-        <form id="formulario-asignar" method="get" action="{{ route('PasajerosVuelos.asignar') }}" class="w-25 p-3">
+        <form id="formulario-asignar" method="post" action="{{ route('PasajerosVuelos.asignar') }}" class="w-25 p-3">
+            @csrf
             <table class="table">
                 <tbody>
                     <tr>
                         <td>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="pasajero">
                                 <option selected>Pasajeros</option>
+                                @foreach ($pasajeros as $pasajero)
+                                    <option value="{{ $pasajero->id }}">{{ $pasajero->nombre }}</option>
+                                @endforeach
                             </select>
                         </td>
         
                         <td>
-                            <select class="form-select" aria-label="Default select example">
+                            <select class="form-select" aria-label="Default select example" name="vuelo">
                                 <option selected>Vuelos</option>
+                                @foreach ($vuelos as $vuelo)
+                                    <option value="{{ $vuelo->id }}">{{ $vuelo->nombre }}</option>
+                                @endforeach
                             </select>
                         </td>
                     </tr>

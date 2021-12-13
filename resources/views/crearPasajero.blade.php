@@ -38,6 +38,7 @@
     {{-- FORMULARIO CREAR PASAJERO --}}
     <div class="h-auto w-100 mt-5 d-flex align-items-center justify-content-center">
         <form id="formulario-pasajero" method="get" action="{{route('pasajero.store')}}" class="w-25 p-3">
+          @csrf
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre" name="nombre">

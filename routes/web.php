@@ -28,11 +28,8 @@ Route::get('/vuelos/crear', function () {
     return view('crearVuelo');
 })->name("crearVuelo");
 
-Route::get('/PasajerosVuelos', function () {
-    return view('asignarListar');
-})->name("asignarListar");
-
 Route::get('/pasajeros/store', [PasajeroController::class, 'store'])->name('pasajero.store');
 Route::get('/vuelos/store', [VueloController::class, 'store'])->name('vuelo.store');
-Route::get('/PasajerosVuelos/asignar', [PasajerosVuelosController::class, 'asignar'])->name('PasajerosVuelos.asignar');
-Route::get('/PasajerosVuelos/listar', [PasajerosVuelosController::class, 'listar'])->name('PasajerosVuelos.listar');
+
+Route::get('/PasajerosVuelos/listar', [PasajerosVuelosController::class, 'index'])->name('PasajerosVuelos.listar');
+Route::post('/PasajerosVuelos/asignar', [PasajerosVuelosController::class, 'asignar'])->name('PasajerosVuelos.asignar');
