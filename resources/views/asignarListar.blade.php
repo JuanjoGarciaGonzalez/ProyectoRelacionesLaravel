@@ -36,17 +36,26 @@
         border-top: 1px solid black !important;
         color: black
     }
+
+    .tabla-tickets {
+        margin: 0 auto;
+        width: 40vw;
+        height: auto;
+        max-height: 300px;
+        overflow-y: scroll;
+        border: 1px solid black;
+    }
 </style>
 
 @extends("plantilla-navbar-footer")
 
 @section("titulo")
-    Asignar y listar
+    Asignar y listar tickets
 @endsection
 
 @section("contenido")
     <a href="{{ route("home") }}" class="btn btn-danger volver"><i class="fas fa-long-arrow-alt-left"></i> Volver</a>
-    <h1>Asignar</h1>
+    <h1>Asignar ticket</h1>
 
     <div class="h-auto w-100 d-flex align-items-center justify-content-center">
         <form id="formulario-asignar" method="post" action="{{ route('PasajerosVuelos.asignar') }}" class="w-25 p-3">
@@ -83,38 +92,38 @@
     
     <hr>
     
-    <h1>Listar</h1>
+    <h1>Listar tickets</h1>
 
-    <table class="table" style="margin-top: 20px">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">ID PASAJERO</th>
-            <th scope="col">ID VUELO</th>
-            <th scope="col">TITULAR</th>
-            <th scope="col">ORIGEN</th>
-            <th scope="col">DESTINO</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td>Larry</td>
-            <td>the Bird</td>
-            <td>@twitter</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="tabla-tickets">
+        <table class="table" style="margin-top: 20px">
+            <thead>
+              <tr>
+                <th scope="col">ID PASAJERO</th>
+                <th scope="col">ID VUELO</th>
+                <th scope="col">TITULAR</th>
+                <th scope="col">ORIGEN</th>
+                <th scope="col">DESTINO</th>
+              </tr>
+            </thead>
+            <tbody>
+                @foreach ($pasajeros as $pasajero)
+                    @foreach ($pasajero->vuelos as $vueloRelacionado)
+                    @php
+                        $idVuelo = $vueloRelacionado-> pivot -> vuelo_id;
+                    @endphp
+
+                        <tr>
+                            <td>{{ $vueloRelacionado -> pivot -> pasajero_id }}</td>
+                            <td>{{ $vueloRelacionado -> pivot -> vuelo_id }}</td>
+                            <td>{{ $pasajero -> nombre }}</td>
+                            <td>{{ $vuelos->find($idVuelo)-> origen }}</td>
+                            <td>{{ $vuelos->find($idVuelo) -> destino }}</td>
+                        </tr>
+                    @endforeach
+                @endforeach
+    
+            </tbody>
+          </table>
+    </div>
+
 @endsection

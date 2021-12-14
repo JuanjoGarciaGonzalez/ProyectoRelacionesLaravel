@@ -23,8 +23,4 @@ class PasajerosVuelosController extends Controller
         return view('asignarListar')->with('pasajeros', $pasajeros)->with('vuelos', $vuelos);
     }
 
-    function listar() {
-        //utilizando el método pivot
-        return redirect()->route('asignarListar');
-    }
 }
