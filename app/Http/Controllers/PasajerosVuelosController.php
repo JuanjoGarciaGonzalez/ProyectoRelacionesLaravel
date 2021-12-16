@@ -23,4 +23,12 @@ class PasajerosVuelosController extends Controller
         return view('asignarListar')->with('pasajeros', $pasajeros)->with('vuelos', $vuelos);
     }
 
+    function borrar($idVuelo, $idPasajero) {
+        $pasajero = Pasajero::find($idPasajero);
+        $pasajero->vuelos()->detach($idVuelo);
+        $pasajeros = Pasajero::all(); //un método precedido de dos puntos es un método estático, de una flecha es un método normal
+        $vuelos = Vuelo::all();
+        return view('asignarListar')->with('pasajeros', $pasajeros)->with('vuelos', $vuelos);
+    }
+
 }

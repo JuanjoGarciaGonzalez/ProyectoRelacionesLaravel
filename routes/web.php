@@ -33,3 +33,5 @@ Route::get('/vuelos/store', [VueloController::class, 'store'])->name('vuelo.stor
 
 Route::get('/PasajerosVuelos/listar', [PasajerosVuelosController::class, 'index'])->name('PasajerosVuelos.listar');
 Route::post('/PasajerosVuelos/asignar', [PasajerosVuelosController::class, 'asignar'])->name('PasajerosVuelos.asignar');
+Route::get('/PasajerosVuelos/borrar{idVuelo}/{idPasajero}', [PasajerosVuelosController::class, 'borrar'])->name('PasajerosVuelos.borrar');
+

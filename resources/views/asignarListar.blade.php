@@ -7,15 +7,15 @@
         font-family: 'Bebas Neue', cursive !important;
     }
 
-    .fas {
-        color: white;
-    }
-
     .volver {
         color: white;
         position: fixed;
         top: 100px;
         left: 20px;
+    }
+
+    .volver .fas {
+        color: white;
     }
 
     .table {
@@ -44,6 +44,19 @@
         max-height: 300px;
         overflow-y: scroll;
         border: 1px solid black;
+    }
+
+    .tabla-tickets .fas {
+        color: red;
+        font-size: 1.2rem;
+    }
+
+    .tabla-tickets .fas:hover {
+        color: rgba(255, 0, 0, 0.7);
+    }
+
+    a {
+        text-decoration: none;
     }
 </style>
 
@@ -110,14 +123,16 @@
                     @foreach ($pasajero->vuelos as $vueloRelacionado)
                     @php
                         $idVuelo = $vueloRelacionado-> pivot -> vuelo_id;
+                        $idPasajero = $vueloRelacionado-> pivot -> pasajero_id;
                     @endphp
 
                         <tr>
-                            <td>{{ $vueloRelacionado -> pivot -> pasajero_id }}</td>
-                            <td>{{ $vueloRelacionado -> pivot -> vuelo_id }}</td>
+                            <td>{{ $idVuelo }}</td>
+                            <td>{{ $idPasajero }}</td>
                             <td>{{ $pasajero -> nombre }}</td>
                             <td>{{ $vuelos->find($idVuelo)-> origen }}</td>
                             <td>{{ $vuelos->find($idVuelo) -> destino }}</td>
+                            <td><a href="{{ route("PasajerosVuelos.borrar", array($idPasajero, $idVuelo))}}" data-toggle="tooltip" data-placement="top" title="Anular ticket"><i class="fas fa-trash-alt"></i></a></td>
                         </tr>
                     @endforeach
                 @endforeach
