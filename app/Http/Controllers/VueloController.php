@@ -12,9 +12,22 @@ class VueloController extends Controller
         $this->vuelo = $vuelos;
     }
 
+    public function listar() {
+        $vuelos = Vuelo::all();
+        return view('crearVuelo')->with('vuelos', $vuelos);
+    }
+
     public function store(Request $request) {
         $vuelo = new Vuelo();
         $vuelo->create($request->all());
-        return redirect()->route('home');
+        $vuelos = Vuelo::all();
+        return view('crearVuelo')->with('vuelos', $vuelos);
+    }
+
+    public function borrarVuelo($id) {
+        $vuelo = Vuelo::find($id);
+        $vuelo->delete();
+        $vuelos = Vuelo::all();
+        return view('crearVuelo')->with('vuelos', $vuelos);
     }
 }

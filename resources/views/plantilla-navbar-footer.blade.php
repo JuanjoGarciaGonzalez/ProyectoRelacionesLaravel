@@ -38,10 +38,10 @@
                     <a class="nav-link" href="{{ route('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('crearPasajero') }}">Crear pasajero</a>
+                    <a class="nav-link" href="{{ route('pasajero.listar') }}">Crear pasajero</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('crearVuelo') }}">Crear vuelo</a>
+                    <a class="nav-link" href="{{ route('vuelo.listar') }}">Crear vuelo</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('PasajerosVuelos.listar') }}">Asignar y listar</a>

@@ -16,21 +16,21 @@ use App\Http\Controllers\PasajerosVuelosController;
 |
 */
 
+// HOME
 Route::get('/', function () {
     return view('home');
 })->name("home"); //El name se le indica a la ruta no al return
 
-Route::get('/pasajeros/crear', function () {
-    return view('crearPasajero');
-})->name("crearPasajero");
-
-Route::get('/vuelos/crear', function () {
-    return view('crearVuelo');
-})->name("crearVuelo");
+// CREAR PASAJERO/VUELO
+Route::get('/pasajeros', [PasajeroController::class, 'listar'])->name('pasajero.listar');
+Route::get('/vuelos', [VueloController::class, 'listar'])->name('vuelo.listar');
 
 Route::get('/pasajeros/store', [PasajeroController::class, 'store'])->name('pasajero.store');
+Route::get('/pasajeros/borrar{id}', [PasajeroController::class, 'borrarPasajero'])->name('pasajero.borrar');
 Route::get('/vuelos/store', [VueloController::class, 'store'])->name('vuelo.store');
+Route::get('/vuelos/borrar{id}', [VueloController::class, 'borrarVuelo'])->name('vuelo.borrar');
 
+// ASIGNAR LISTAR
 Route::get('/PasajerosVuelos/listar', [PasajerosVuelosController::class, 'index'])->name('PasajerosVuelos.listar');
 Route::post('/PasajerosVuelos/asignar', [PasajerosVuelosController::class, 'asignar'])->name('PasajerosVuelos.asignar');
 Route::get('/PasajerosVuelos/borrar{idVuelo}/{idPasajero}', [PasajerosVuelosController::class, 'borrar'])->name('PasajerosVuelos.borrar');
