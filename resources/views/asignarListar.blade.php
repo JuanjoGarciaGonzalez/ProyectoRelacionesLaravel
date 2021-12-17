@@ -123,12 +123,12 @@
                     @foreach ($pasajero->vuelos as $vueloRelacionado)
                     @php
                         $idVuelo = $vueloRelacionado-> pivot -> vuelo_id;
-                        $idPasajero = $vueloRelacionado-> pivot -> pasajero_id;
+                        $idPasajero = $pasajero -> id;
                     @endphp
 
                         <tr>
-                            <td>{{ $idVuelo }}</td>
                             <td>{{ $idPasajero }}</td>
+                            <td>{{ $idVuelo }}</td>
                             <td>{{ $pasajero -> nombre }}</td>
                             <td>{{ $vuelos->find($idVuelo)-> origen }}</td>
                             <td>{{ $vuelos->find($idVuelo) -> destino }}</td>
